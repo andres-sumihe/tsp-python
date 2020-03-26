@@ -12,24 +12,6 @@ class Euc_2D:
     def norm(self):
         return sqrt(self.x ** 2 + self.y ** 2)
 
-class GeoCoord:
-    def __init__(self, degrees = None, minutes = None):
-        if degrees < 0:
-            (self.degrees, self.minutes) = (degrees, -1 * minutes)
-        else:
-            (self.degrees, self.minutes) = (degrees, minutes)
-
-    def toRadians(self):
-        return (self.degrees + self.minutes / 60) * pi / 180.0
-
-class GeoCity:
-    def __init__(self, lat = None, lon = None):
-        self.lat = lat.toRadians()
-        self.lon = lon.toRadians()
-
-    def coord_tuple(self):
-        return (self.lat, self.lon)
-
 def euc_2d_distance(city1, city2):
     return int(around((city1 - city2).norm()))
 
@@ -52,8 +34,7 @@ def geo_distance(city1, city2):
 def jarak(city1, city2):
     if type(city1) != type(city2):
         print("Can't calculate jarak between cities: different coord types")
-    elif type(city1) == GeoCity:
-        return geo_distance(city1, city2)
+
     elif type(city1) == Euc_2D:
         return euc_2d_distance(city1, city2)
 

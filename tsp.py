@@ -1,5 +1,5 @@
 from collections import deque
-from kota        import GeoCoord, GeoCity, Euc_2D
+from kota        import Euc_2D
 
 def minimal_tsp():
     return { "COMMENT"          : ""
@@ -32,7 +32,6 @@ def baca_Euclidean_city(words):
     x = float(words.popleft())
     y = float(words.popleft())
     return Euc_2D(x, y)
-
 
 def baca_numbered_Euclidean_city_line(desired_number, words):
     city_number = baca_int(words)

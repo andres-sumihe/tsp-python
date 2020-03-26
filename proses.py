@@ -1,5 +1,5 @@
 from collections import deque
-from kota        import jarak, GeoCity, Euc_2D, GeoCoord
+from kota        import jarak,  Euc_2D
 from tsp         import baca_tsp_file
 from numpy       import array
 
